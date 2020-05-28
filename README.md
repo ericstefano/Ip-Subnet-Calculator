@@ -4,9 +4,9 @@ This is a basic IP Subnet Calculator that I made with Python to learn the about 
 
 # Features:
 
-- A Binary converter made by me ( I only found out later that Python had a built-in binary converter)
+- Binary to Decimal and Decimal to Binary converters made by me (I only found out later that Python had built-in binary converters.)
 
-- It only needs an IP Addressa and it CIDR to Calculate and Find out The: 
+- With an IP Address and a CIDR you can Calculate and find out the:
 
 CIDR;
 Netmask;
