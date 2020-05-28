@@ -6,7 +6,7 @@ This is a basic IP Subnet Calculator that I made with Python to learn the about 
 
 - A Binary converter made by me ( I only found out later that Python had a built-in binary converter)
 
-- Calculate and Find out The: 
+- It only needs an IP Addressa and it CIDR to Calculate and Find out The: 
 
 CIDR;
 Netmask;
@@ -17,4 +17,4 @@ MinimumHosts;
 MaximumHosts;
 Hosts per Net;
 
-Only with an IP Address and a CIDR number.
+
