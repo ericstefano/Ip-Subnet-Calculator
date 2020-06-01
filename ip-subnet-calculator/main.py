@@ -1,7 +1,7 @@
 from conversors import SubnetCalc
 
 if __name__ == "__main__":
-    ipv4 = SubnetCalc('192.168.0.25', cidr=30)
+    ipv4 = SubnetCalc('192.168.0.25', cidr=12)
 
     print(f'Address: {ipv4.address}\n'
           f'Netmask: {ipv4.net} = {ipv4.cidr}\n'

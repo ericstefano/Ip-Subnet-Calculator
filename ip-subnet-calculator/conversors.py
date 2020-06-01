@@ -10,10 +10,10 @@ class SubnetCalc:
         self.wildcard = wildcard
         self.hosts_number = self.calc_hosts(self.calc(net=0, wildcard=1))
         self.hosts_number = self.hosts_number - 2 if self.hosts_number >= 2 else self.hosts_number
-        self.network = self.calc2(y='0')
-        self.broadcast = self.calc2(y='1')
-        self.hostmin = self.calc3(y='0', z='1')
-        self.hostmax = self.calc3(y='1', z='0')
+        self.network = self.calc2(y='0', z='0')
+        self.broadcast = self.calc2(y='1', z='0')
+        self.hostmin = self.calc2(y='0', z='1')
+        self.hostmax = self.calc2(y='1', z='0', arg=False)
 
     @property
     def address(self):
@@ -26,6 +26,10 @@ class SubnetCalc:
     @property
     def wildcard(self):
         return self._wildcard
+
+    @property
+    def cidr(self):
+        return self._cidr
 
     @address.setter
     def address(self, value):
@@ -50,6 +54,13 @@ class SubnetCalc:
         else:
             self._wildcard = self.octets_converter(self.calc(net=0, wildcard=1))
             return
+
+    @cidr.setter
+    def cidr(self, value):
+        if value > 32 or value <= 0:
+            raise ValueError('Invalid CIDR')
+        else:
+            self._cidr = value
 
     @staticmethod
     def decimal_to_binary(value):
@@ -103,26 +114,19 @@ class SubnetCalc:
         value = ''.join(str(i) for i in value)
         return value
 
-    def calc2(self, y='0'):
+    def calc2(self, y='0', z='1', arg=True):
         x = self.address.split('.')
         converted = []
         for i in range(4):
             converted.append(self.decimal_to_binary(int(x[i])))
         converted = ''.join(str(i) for i in converted)
         converted = converted[:self.cidr]
-        for i in range(self.cidr_remainder):
-            converted += y
-        return self.octets_converter(converted)
-
-    def calc3(self, y='0', z='1'):
-        x = self.address.split('.')
-        converted = []
-        for i in range(4):
-            converted.append(self.decimal_to_binary(int(x[i])))
-        converted = ''.join(str(i) for i in converted)
-        converted = converted[:self.cidr]
-        for i in range(self.cidr_remainder - 1):
-            converted += y
+        if arg:
+            for i in range(self.cidr_remainder - int(z)):
+                converted += y
+        else:
+            for i in range(self.cidr_remainder - 1):
+                converted += y
         converted += z
         return self.octets_converter(converted)
 
