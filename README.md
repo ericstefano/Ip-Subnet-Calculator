@@ -8,7 +8,6 @@ This is a basic IP Subnet Calculator that I made with Python to learn the about 
 
 - With an IP Address and a CIDR you can Calculate and find out the:
 
-CIDR;
 Netmask;
 Wildcard;
 Network;
