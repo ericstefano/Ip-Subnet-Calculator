@@ -8,11 +8,11 @@ This is a basic IP Subnet Calculator that I made using Python to learn about Cla
 
 - With an IP Address and a CIDR you can Calculate and find out the:
 
-Netmask;
-Wildcard;
-Network;
-Broadcast;
-MinimumHosts;
+Netmask,
+Wildcard,
+Network,
+Broadcast,
+MinimumHosts,
 MaximumHosts and
 Hosts per Net
 
