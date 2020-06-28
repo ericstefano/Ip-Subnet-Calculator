@@ -1,6 +1,6 @@
 # IP-Subnet-Calculator
 
-This is a basic IP Subnet Calculator that I made with Python to learn the about Classes and Objects.
+This is a basic IP Subnet Calculator that I made using Python to learn about Classes and Objects.
 
 # Features:
 
