@@ -13,7 +13,7 @@ Wildcard;
 Network;
 Broadcast;
 MinimumHosts;
-MaximumHosts;
-Hosts per Net;
+MaximumHosts and
+Hosts per Net
 
 
